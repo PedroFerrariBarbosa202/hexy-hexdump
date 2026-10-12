@@ -4,7 +4,8 @@
 #include <stdlib.h>
 
 #include "errno.h"
+#include "format.h"
 
-error_t hexy_dump(FILE *input, FILE *output);
+error_t hexy_dump(FILE *input, FILE *output, hexy_config_t *config);
 
 #endif  // INCLUDEhexyhexyhexy.h_

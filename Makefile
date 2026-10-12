@@ -1,7 +1,7 @@
 CC := gcc
 AR := ar
 
-CFLAGS := -Wall
+CFLAGS := -Wall -g -O0 -Wextra
 CPPFLAGS := -Iinc/hexy -Ishared
 
 LDFLAGS :=
