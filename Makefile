@@ -14,7 +14,8 @@ LIB_DIR := lib
 CMD_DIR := tool
 
 LIB_SRC := \
-					 $(LIB_DIR)/hexy.c
+					 $(LIB_DIR)/hexy.c \
+					 $(LIB_DIR)/format.c
 
 
 # patsubst(patters, replace, text)
@@ -25,7 +26,7 @@ LIB_OBJS := $(patsubst $(LIB_DIR)/%.c, \
 						$(BUILD_DIR)/%.o, \
 						$(LIB_SRC))
 
-CMD_OBJ := $(BUILD_DIR)/hexy.o
+CMD_OBJ := $(BUILD_DIR)/hexdump.o
 
 LIBRARY := $(BUILD_DIR)/$(LIB_NAME)
 
@@ -45,7 +46,7 @@ $(BUILD_DIR)/%.o: $(LIB_DIR)/%.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 # Compile frontend/tools
-$(CMD_OBJ): $(CMD_DIR)/hexy.c
+$(CMD_OBJ): $(CMD_DIR)/hexdump.c
 	mkdir -p $(BUILD_DIR)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
