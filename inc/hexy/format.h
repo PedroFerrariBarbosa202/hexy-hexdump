@@ -4,6 +4,9 @@
 #include "errno.h"
 #include <stdint.h>
 
+#define FLAG_BYTE_PER_LINE    (1 << 0)
+#define FLAG_BYTE_OCTAL       (1 << 1)
+
 typedef struct hexy_config_t{
   uint8_t flags;
   uint32_t bytes_per_line;

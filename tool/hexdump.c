@@ -6,8 +6,6 @@
 #include "hexy.h"
 #include "errno.h"
 
-#define FLAG_BYTE_PER_LINE (1 << 0)
-
 static hexy_config_t config = {
   .bytes_per_line = 16,
 };
@@ -16,11 +14,15 @@ static void parse_cli(int argc, char *argv[]){
   uint8_t flags = 0;
   
   int opt;
-  while((opt = getopt(argc, argv, "w:")) != -1){
+  while((opt = getopt(argc, argv, "w: o")) != -1){
     switch(opt){
       case 'w':{
           flags |= FLAG_BYTE_PER_LINE;
           config.bytes_per_line = atoi(optarg);
+      }break;
+
+      case 'o':{
+          flags |= FLAG_BYTE_OCTAL;
       }break;
     }
   }
